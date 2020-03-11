@@ -9,6 +9,10 @@ REPO_NAME ?= microtrader
 TEST_REPO_NAME ?= microtrader-dev
 TEST_DIR ?= build/test-results/junit/
 
+# AWS ECR setting
+DOCKER_REGISTRY ?= 964344578553.dkr.ecr.us-east-2.amazonaws.com
+DOCKER_LOGIN_EXPRESSION := aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 964344578553.dkr.ecr.us-east-2.amazonaws.com/dockerproductionaws/microtrader-base
+
 # Release settings
 export HTTP_PORT ?= 8000
 export AUDIT_HTTP_ROOT ?= /audit/
